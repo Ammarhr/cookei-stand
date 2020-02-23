@@ -1,0 +1,33 @@
+body {
+    background-image: url(/img/beige-background.jpg);
+}
+
+header {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: xx-large;
+    text-align: center;
+    margin: 8px;
+    border: solid black 2px;
+    background-image: url(/img/WoodBackground.jpg);
+}
+
+h1 {
+    color: rgb(63, 34, 0);
+    padding: 13px;
+}
+
+footer {
+    text-align: center;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover,
+a:active {
+    font-size: 115%;
+}
