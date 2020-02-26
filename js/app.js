@@ -1,7 +1,7 @@
 'use strict';
 var hours = ['6am', '7am', '8pm', '9pm', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
-var objects = [seattle, tokyo, dubai, paris, lima];
+var objects = [];
 //the constructor:
 function LocationStore(name, minCus, maxCus, avgCookieSale) {
     this.name = name;
@@ -11,13 +11,8 @@ function LocationStore(name, minCus, maxCus, avgCookieSale) {
     this.numOfCust = [];
     this.avgCookieSale = avgCookieSale;
     this.total = [];
+    objects.push(this);
 }
-var seattle = new LocationStore('Seattle', 23, 65, 6.3);
-var tokyo = new LocationStore('Tokyo', 3, 24, 1.2);
-var dubai = new LocationStore('Dubai', 11, 38, 3.7);
-var paris = new LocationStore('Paris', 20, 38, 2.3);
-var lima = new LocationStore('Lima', 2, 16, 4.7);
-
 
 //constructor method for caculate the number of cookies:
 LocationStore.prototype.randomCus = function() {
@@ -41,7 +36,7 @@ tableAll.appendChild(footEl);
 function tHead() {
     var trE1 = document.createElement('tr');
     headEl.appendChild(trE1);
-    trE1.textContent = '...........';
+    trE1.textContent = 'Location';
     for (var i = 0; i < hours.length; i++) {
         var thE1 = document.createElement('th')
         trE1.appendChild(thE1);
@@ -77,19 +72,33 @@ function tFoot() {
     footEl.appendChild(trE3);
     trE3.textContent = 'Totals';
     for (var d = 0; d < hours.length; d++) {
+        var result = 0;
+        for (var c = 0; c < objects.length; c++) {
+            result += objects[c].numOfCookies[d]
+        }
         var tdE3 = document.createElement('td');
         trE3.appendChild(tdE3);
-        tdE3.textContent += seattle.numOfCookies[d] + tokyo.numOfCookies[d] + dubai.numOfCookies[d] + paris.numOfCookies[d] + lima.numOfCookies[d];
+        tdE3.textContent = result;
+        // tdE3.textContent += seattle.numOfCookies[d] + tokyo.numOfCookies[d] + dubai.numOfCookies[d] + paris.numOfCookies[d] + lima.numOfCookies[d];
     }
+    // var resultTotal = 0;
+    // for (var c = 0; c < objects.length; c++) {
+    //     resultTotal += objects[c].total[d];
+    // }
     var tdE4 = document.createElement('td');
     trE3.appendChild(tdE4);
+    // tdE4.textContent += resultTotal;
     tdE4.textContent += seattle.total + tokyo.total + dubai.total + paris.total + lima.total;
 }
 
+var seattle = new LocationStore('Seattle', 23, 65, 6.3);
+var tokyo = new LocationStore('Tokyo', 3, 24, 1.2);
+var dubai = new LocationStore('Dubai', 11, 38, 3.7);
+var paris = new LocationStore('Paris', 20, 38, 2.3);
+var lima = new LocationStore('Lima', 2, 16, 4.7);
 
 tHead();
 //calling the function dynamicly:
-var objects = [seattle, tokyo, dubai, paris, lima];
 for (var i = 0; i < objects.length; i++) {
     objects[i].randomCus();
     objects[i].render();
