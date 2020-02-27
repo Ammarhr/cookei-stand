@@ -124,15 +124,20 @@ locationForm.addEventListener('submit', function(event) {
     var maxCus = parseInt(event.target.maxCustumer.value);
     var minCus = parseInt(event.target.miniCustumer.value);
     var avgCookieSale = parseInt(event.target.avgCookies.value);
-    var newCity = new LocationStore(name, minCus, maxCus, avgCookieSale);
+
     if (!name || !maxCus || !minCus || !avgCookieSale) {
         alert(`please complet the form  refresh the page`);
-    }
-    if (maxCus <= 0 || minCus <= 0) {
+    } else if (maxCus <= 0 || minCus <= 0) {
         alert(`please enter a vaild value for min/max customer!! refresh the page`)
-    }
-    if (minCus > maxCus) {
+    } else if (minCus > maxCus) {
         alert(`please enter a value for maximum custumer bigger than ${minCus}!!  refresh the page`)
+    } else {
+        var newCity = new LocationStore(name, minCus, maxCus, avgCookieSale);
+        removFoot();
+        newCity.randomCus();
+        newCity.render();
+        tFoot();
+        locationForm.reset();
     }
     // for (var i = 0; 1 < objects.length; i++) {
     //     if (name === objects[i])
@@ -140,10 +145,6 @@ locationForm.addEventListener('submit', function(event) {
     //     minCus = objects[i].minCus;
     //     avgCookieSale = objects[i].avgCookieSale;
     // }
-    removFoot();
-    newCity.randomCus();
-    newCity.render();
-    tFoot();
-    locationForm.reset();
+
 })
 tFoot();
