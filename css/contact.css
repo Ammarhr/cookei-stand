@@ -1,0 +1,50 @@
+body {
+    background-color: rgb(255, 219, 128);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    background-color: rgb(155, 89, 35);
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: larger;
+    padding: 5px;
+}
+
+header img {
+    width: 200px;
+    height: auto;
+}
+
+nav {
+    height: 20px;
+    padding: 2px;
+    text-align: center;
+    background-color: rgb(192, 111, 45);
+}
+
+a {
+    text-decoration: none;
+    color: rgb(54, 16, 3);
+    padding: 3px;
+}
+
+a:hover {
+    background-color: rgb(155, 89, 35);
+}
+
+article p {
+    padding: 10px;
+    background-color: rgb(247, 139, 52);
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: larger;
+}
+
+article ul li {
+    padding: 10px;
+    background-color: rgb(255, 149, 61);
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: larger;
+}

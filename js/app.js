@@ -25,13 +25,13 @@ LocationStore.prototype.randomCus = function() {
 var mainContiner = document.getElementById('sales');
 var tableAll = document.createElement('table');
 mainContiner.appendChild(tableAll);
+tableAll.setAttribute('class', 'w3-table-all')
 var headEl = document.createElement('thead');
 tableAll.appendChild(headEl);
 var bodyEl = document.createElement('tbody');
 tableAll.appendChild(bodyEl);
 var footEl = document.createElement('tfoot');
 tableAll.appendChild(footEl);
-
 
 //function to creat and render the head of table to html:
 
@@ -123,7 +123,7 @@ locationForm.addEventListener('submit', function(event) {
     var name = event.target.locationName.value;
     var maxCus = parseInt(event.target.maxCustumer.value);
     var minCus = parseInt(event.target.miniCustumer.value);
-    var avgCookieSale = parseInt(event.target.avgCookies.value);
+    var avgCookieSale = parseFloat(event.target.avgCookies.value);
 
     if (!name || !maxCus || !minCus || !avgCookieSale) {
         alert(`please complet the form  refresh the page`);
